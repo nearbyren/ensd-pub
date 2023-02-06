@@ -32,7 +32,7 @@ task YourTaskName(dependsOn: 'autoPublish') {
     aarInfo {
         groupId = 'ejiayou.xxx.xxx'
         artifactId = 'xxx'
-        version = '0.1.1-SNAPSHOT'
+        version = '0.0.1-SNAPSHOT'
         buildVariant = 'debug'
     }
 }
@@ -53,7 +53,7 @@ MAVEN_USERNAME=Your-Private-Maven-Repository-Username
 MAVEN_PASSWORD=Your-Private-Maven-Repository-Password
 MAVEN_GROUP_ID=ejiayou.datacenter.module
 MAVEN_ARTIFACT_ID=datacenter-module
-MAVEN_VERSION=1.0.0-SNAPSHOT
+MAVEN_VERSION=0.0.1-SNAPSHOT
 MAVEN_BUILD_VARIANT=debug
 #MAVEN_VERSION=1.0.0
 #MAVEN_BUILD_VARIANT=release
