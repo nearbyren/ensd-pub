@@ -48,8 +48,15 @@ MAVEN_RELEASE_URL=http://Your-Private-Maven-Repository-Release-Url
 - 在工程根目录`local.properties`文件中添加账号信息(推荐)，也可以填写在`gradle.properties`中(不推荐)
 
 ```properties
+MAVEN_REMOTE_AAR=true
 MAVEN_USERNAME=Your-Private-Maven-Repository-Username
 MAVEN_PASSWORD=Your-Private-Maven-Repository-Password
+MAVEN_GROUP_ID=ejiayou.datacenter.module
+MAVEN_ARTIFACT_ID=datacenter-module
+MAVEN_VERSION=1.0.0-SNAPSHOT
+MAVEN_BUILD_VARIANT=debug
+#MAVEN_VERSION=1.0.0
+#MAVEN_BUILD_VARIANT=release
 ```
 
 - 点击 `task YourTaskName(dependsOn: 'autoPublish') {` 左侧的绿色三角`▶️`运行即可，发布成功会在`Build Output`窗口打印发布地址
@@ -79,6 +86,8 @@ MAVEN_PASSWORD=Your-Private-Maven-Repository-Password
 
 ### 本地插件引用方式
 
-- 在settings.gradle配置引用插件 :autoPublish 在根build.gradle配置引用插件   classpath project(":autoPublish")  
+- 在settings.gradle配置引用插件 :auto 在根build.gradle配置引用插件   classpath project(":auto")  
 
 通过配置 IDE Configuration  创建 Remote 类型 Configuration：
+
+运行debug 'xx' 在代码标记 即可
