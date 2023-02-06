@@ -1,0 +1,61 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+
+    repositories {
+        google()
+        mavenLocal()
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+    }
+    dependencies {
+
+    }
+    configurations.all {
+        resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenLocal()
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+    }
+
+    version = "0.0.1"
+    group = 'ejiayou.pub'
+}
+
+// 发布到Jitpack ./gradlew build publishToMavenLocal
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'maven-publish'
+
+    sourceCompatibility = 1.8 // java 8
+    targetCompatibility = 1.8
+
+    java {
+        withSourcesJar()
+        withJavadocJar()
+    }
+
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                groupId project.group
+                artifactId project.name
+                version project.version
+                from components.java
+            }
+        }
+        repositories {
+            maven {
+                name = 'repo'
+                url = "../repo"
+            }
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
